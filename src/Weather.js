@@ -1,7 +1,17 @@
 import React from "react";
 import "./Weather.css";
+import axios from "axios";
 
 export default function Weather(){
+    function handleResponse(response){
+        console.log(response.data)
+    }
+    const apiKey="ao3a20tc3c3666f563607fb45f4cc5d7";
+    let city="New York"
+    let apiUrl="https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric";
+    axios.get(apiUrl).then(handleResponse);
+
+
     return(
         <div className="Weather">
             <form>
@@ -41,15 +51,15 @@ export default function Weather(){
             </div>
             </div>
             <div>
-                
+
             </div>
             <footer>
-          This website was coded by 
-          <a href='https://github.com/Faithk33'>Lethabo Kekana</a>
-           and is open-sourced on 
-           <a href='https://github.com/Faithk33/react-weather-project'>Github</a> 
-           and hosted by
-         <a href='https://react-weather-lkekana.netlify.app/'>Netlify</a>
+          This website was coded by  
+          <a href='https://github.com/Faithk33'> Lethabo Kekana </a>
+            and is open-sourced on 
+            <a href='https://github.com/Faithk33/react-weather-project'> Github </a> 
+            and hosted by 
+          <a href='https://react-weather-lkekana.netlify.app/'> Netlify </a>
         </footer>
         </div>
     )
